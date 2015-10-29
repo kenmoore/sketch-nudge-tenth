@@ -2,7 +2,7 @@
 
 /*
   Author: Ken Moore
-  Version: 1.0
+  Version: 1.1
 
   Nudges selection 0.1 px down
   Derived from Duplicate And Nudge plugins by Ale Muñoz
@@ -21,5 +21,7 @@
 // to get the sidebar panel contents
 // to update to reflect the new position
 var doc = context.document;
-doc.setCurrentPage(0);
-doc.sidebarController().pagesViewController().reloadData()
+var c = [doc currentPage];
+[doc setCurrentPage:0]
+[doc setCurrentPage:([[doc pages] count] - 1)]
+[doc setCurrentPage:c]
