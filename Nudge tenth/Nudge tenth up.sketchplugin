@@ -1,0 +1,24 @@
+// Nudge tenth up (cmd alt ↑)
+
+/*
+  Author: Ken Moore
+  Version: 1.0
+
+  Nudges selection 0.1 px up
+*/
+
+
+ var selection = context.selection
+  for(var i=0; i < [selection length]; i++) {
+    var s = selection[i]
+  var frame = [s frame]
+
+  [frame setY:([frame y] - 0.1)]
+}
+
+// these 3 lines are a bit of a hack
+// to get the sidebar panel contents
+// to update to reflect the new position
+var doc = context.document;
+doc.setCurrentPage(0);
+doc.sidebarController().pagesViewController().reloadData()
