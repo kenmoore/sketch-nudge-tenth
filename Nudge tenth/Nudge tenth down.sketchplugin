@@ -2,7 +2,7 @@
 
 /*
   Author: Ken Moore
-  Version: 1.1
+  Version: 1.2
 
   Nudges selection 0.1 px down
   Derived from Duplicate And Nudge plugins by Ale Muñoz
@@ -17,11 +17,4 @@
   [frame setY:([frame y] + 0.1)]
 }
 
-// these 3 lines are a bit of a hack
-// to get the sidebar panel contents
-// to update to reflect the new position
-var doc = context.document;
-var c = [doc currentPage];
-[doc setCurrentPage:0]
-[doc setCurrentPage:([[doc pages] count] - 1)]
-[doc setCurrentPage:c]
+context.document.reloadInspector()
